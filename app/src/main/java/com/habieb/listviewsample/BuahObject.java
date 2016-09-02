@@ -1,19 +1,17 @@
 package com.habieb.listviewsample;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by akupeduli on 9/1/16.
  */
 public class BuahObject {
     private String nama;
     private String berat;
-    private Drawable imageDrawable;
+    private int imageResId;
 
-    public BuahObject(String nama, String berat, Drawable imageDrawable) {
+    public BuahObject(String nama, String berat, int imageResId) {
         this.nama = nama;
         this.berat = berat;
-        this.imageDrawable = imageDrawable;
+        this.imageResId = imageResId;
     }
 
     String getNama() {
@@ -32,11 +30,11 @@ public class BuahObject {
         this.berat = berat;
     }
 
-    public Drawable getImageImageDrawable() {
-        return imageDrawable;
+    public int getImageResId() {
+        return imageResId;
     }
 
-    public void setImageDrawable(Drawable imageDrawable) {
-        this.imageDrawable = imageDrawable;
+    public void setImageResId(int imageResId) {
+        this.imageResId = imageResId;
     }
 }

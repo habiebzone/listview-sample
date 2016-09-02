@@ -2,7 +2,6 @@ package com.habieb.listviewsample;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,8 +21,8 @@ public class ListDinamisObjectActivity extends AppCompatActivity {
     //Membuat penampung data dinamis
     ArrayList<BuahObject> arrayListBuahObject = new ArrayList<>();
 
-    void addBuah(String nama, String berat, Drawable imageDrawable) {
-        BuahObject buahObject = new BuahObject(nama, berat, imageDrawable);
+    void addBuah(String nama, String berat, int imageResId) {
+        BuahObject buahObject = new BuahObject(nama, berat, imageResId);
 
         arrayListBuahObject.add(buahObject);
     }
@@ -35,10 +34,10 @@ public class ListDinamisObjectActivity extends AppCompatActivity {
 
         context = ListDinamisObjectActivity.this;
 
-        addBuah("Duku", "15kg", getResources().getDrawable(R.drawable.gambar1));
-        addBuah("Salak", "15kg", getResources().getDrawable(R.drawable.gambar2));
-        addBuah("Anggur", "15kg", getResources().getDrawable(R.drawable.gambar3));
-        addBuah("Mangga", "15kg", getResources().getDrawable(R.drawable.gambar4));
+        addBuah("Duku", "15kg", R.drawable.gambar1);
+        addBuah("Salak", "15kg", R.drawable.gambar2);
+        addBuah("Anggur", "15kg", R.drawable.gambar3);
+        addBuah("Mangga", "15kg", R.drawable.gambar4);
 
         //Inisialisasi ListView
         ListView listView = (ListView) findViewById(R.id.listView);
@@ -78,8 +77,8 @@ public class ListDinamisObjectActivity extends AppCompatActivity {
 
                 ImageView imageViewCustom =
                         (ImageView) itemCustom.findViewById(R.id.imageViewCustom);
-                imageViewCustom.setImageDrawable(
-                        arrayListBuahObject.get(position).getImageImageDrawable());
+                imageViewCustom.setImageResource(
+                        arrayListBuahObject.get(position).getImageResId());
 
                 return itemCustom;
             }
@@ -101,6 +100,8 @@ public class ListDinamisObjectActivity extends AppCompatActivity {
                 //Pindah activity dan mengirim string 'data' di extra
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("data", arrayListBuahObject.get(position).getNama());
+                intent.putExtra("gambar", arrayListBuahObject.get(position).getImageResId());
+
                 startActivity(intent);
             }
         });

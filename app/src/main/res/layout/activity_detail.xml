@@ -12,4 +12,11 @@
         android:text="Detail"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="40dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/imageViewDetail"
+        android:layout_above="@+id/textViewDetail"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

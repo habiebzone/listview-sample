@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,10 @@ public class DetailActivity extends AppCompatActivity {
         //Mengambil data dari extra dan menyajikannya di tex detail
         TextView textViewDetail = (TextView) findViewById(R.id.textViewDetail);
         textViewDetail.setText(getIntent().getStringExtra("data"));
+
+        //Inisialisasi imageview
+        ImageView imageView = (ImageView) findViewById(R.id.imageViewDetail);
+        imageView.setImageResource(getIntent().getIntExtra("gambar",0));
     }
 
     @Override
